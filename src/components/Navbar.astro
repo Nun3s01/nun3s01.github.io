@@ -1,0 +1,82 @@
+---
+import LogotipoCNN from './LogotipoCNN.astro';
+
+interface Props {
+    isIndex?: boolean;
+}
+const { isIndex = false } = Astro.props;
+---
+
+<header id="container-header" class={`container-header ${isIndex ? 'off-opacity-header' : ''}`}>
+    <nav class="container-navbar">
+        <div class="container-logo">
+            <LogotipoCNN fill="#f2f2f2"/>
+        </div>
+        <div class="container-menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/aboutme">Sobre Mim</a></li>
+                <li><a href="">????</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+<style>
+    #container-header {
+        z-index: 9998;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 1px 1px #0d0d0d;
+    }
+    .off-opacity-header {
+        /* \/ Estado inicial para a animação do GSAP \/ */
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    .container-navbar {
+        padding: 0 10%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .container-logo {
+        width: 80px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-menu {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+</style>

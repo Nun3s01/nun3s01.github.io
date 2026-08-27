@@ -1,0 +1,62 @@
+---
+import LogotipoCNN from './LogotipoCNN.astro';
+import GithubSVG from '../assets/img/github.svg';
+import InstagramSVG from '../assets/img/instagram.svg';
+import LinkedinSVG from '../assets/img/linkedin.svg';
+
+---
+
+
+<footer id="container-footer">
+    <div class="container-content-footer">
+        <div class="container-img-content" title="GitHub">
+            <a href="https://github.com/Nun3s01" target="_blank">
+                <img src={GithubSVG.src} alt="GitHub Icon">
+            </a>
+        </div>
+        <div class="container-img-content" title="Instagram">
+            <a href="https://www.instagram.com/nun3s01_/" target="_blank">
+                <img src={InstagramSVG.src} alt="Instagram Icon">
+            </a>
+        </div>
+        <div class="container-img-content" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/nun3s01/" target="_blank">
+                <img src={LinkedinSVG.src} alt="Linkedin Icon">
+            </a>
+        </div>
+    </div>
+    <div class="container-developed">
+        <a href="/">Developed by Cauã Nunes Novaes</a>
+    </div>
+</footer>
+
+<style>
+    #container-footer {
+        z-index: 9998;
+        width: 100%;
+        height: 10%;
+        background-color: #000000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-content-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-img-content {
+        margin: 10px;
+    }
+
+    .container-developed {
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>

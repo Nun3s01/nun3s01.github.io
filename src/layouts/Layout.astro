@@ -1,0 +1,139 @@
+---
+import Preloader from '../components/LoaderPage.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro'
+
+interface Props {
+	isIndex?: boolean;
+}
+const { isIndex = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/logotipoCNN.svg" />
+		<link rel="icon" href="/logotipoCNN.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Portfolio | Cauã Nunes Novaes</title>
+	</head>
+	<body>
+		<Preloader slot="fallback"/>
+		<Navbar isIndex={isIndex} client:visible/>
+		<main>
+			<slot />
+		</main>
+		<Footer client:visible/>
+	</body>
+</html>
+
+<style is:global>
+	@font-face {
+		font-family: 'PoppinsRegular';
+		src: url('../assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+	}
+	@font-face {
+		font-family: PoppinsBold;
+		src: url('../assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+	}
+	@font-face {
+		font-family: 'AnekDevAnagari';
+		src: url('../assets/fonts/AnekDevAnagari/AnekDevanagari-VariableFont.ttf') format('truetype');
+	}
+	
+	
+	/* Config Lenis */
+	html.lenis, html.lenis body {
+	height: auto;
+	}
+	.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+	}
+	.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+	}
+	.lenis.lenis-stopped {
+	overflow: hidden;
+	}
+	.lenis.lenis-smooth iframe {
+	pointer-events: none;
+	}
+
+
+	:root {
+		--corFundo-padrao: #000000;
+		--corTexto-padrao: #f2f2f2;
+		--corTitulo-padrao: #f7f7f7;
+		
+		--fonte-anekdevanagari: 'AnekDevAnagari', sans-serif;
+		--fonte-poppins-Regular: 'PoppinsRegular', sans-serif;
+		--fonte-poppins-Bold: 'PoppinsBold', sans-serif;
+		--espacamento-padrao: 0.35rem;
+	}
+
+	html, body {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		min-height: 100vh;
+		box-sizing: border-box;
+		font-family: var(--fonte-anekdevanagari);
+		background-color: var(--corFundo-padrao);
+		color: var(--corTexto-padrao);
+	}
+
+	h1, h2, h3, h4 {
+		margin: 0;
+		padding: 0;
+		font-family: var(--fonte-poppins-Bold);
+		color: var(--corTitulo-padrao);
+		letter-spacing: var(--espacamento-padrao);
+		width: min-content;
+		text-align: center;
+		white-space: nowrap;
+	}
+
+	p {
+		margin: 0;
+		padding: 0;
+	}
+
+    a {
+        font-family: var(--fonte-poppins-Bold);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        color: #f2f2f2;
+        text-decoration: none;
+		text-align: center;
+		text-shadow: 0px 0px 70px #f2f2f280;
+    }
+
+	/* Para definir uma <hr> é necessário passar as medidas de tamanho [width e height ] diretamente a tag html (style="") */
+	hr {
+		margin: 0;
+		padding: 0;
+		background-color: transparent;
+		box-shadow: 0 1px 10px #0d0d0d;
+		backdrop-filter: blur(10px);
+		border: none;
+		border-radius: 110px;
+	}
+</style>
+
+<script>
+	import Lenis from 'lenis';
+	import { gsap } from 'gsap';
+
+	const lenis = new Lenis({
+		duration: 1.2, // Inércia de Scrollagem.
+		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+		smoothWheel: true,
+	});
+	
+	gsap.ticker.add((time) => {
+		lenis.raf(time * 1000);
+	});
+	gsap.ticker.lagSmoothing(0);
+</script>

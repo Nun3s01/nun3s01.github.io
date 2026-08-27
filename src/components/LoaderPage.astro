@@ -1,0 +1,101 @@
+---
+import LogotipoCNN from './LogotipoCNN.astro';
+---
+
+<div id="global-loader" class="preloader">
+    <div class="container-logo">
+        <LogotipoCNN class="custom-logo" fill="#f2f2f2"/>
+        <div class="efeito-vidro"></div>
+    </div>
+</div>
+
+<style>
+    .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #09090b; 
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+    }
+
+    .preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .container-logo {
+        position: relative; 
+        width: 120px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .custom-logo {
+        width: 100%; 
+        height: auto;
+        opacity: 0.15; 
+    }
+    
+    .efeito-vidro {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; 
+        height: 100%;
+        -webkit-mask-image: url('/logotipoCNN.svg');
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-image: url('/logotipoCNN.svg');
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        overflow: hidden;
+    }
+
+    .efeito-vidro::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 150%;
+        height: 100%;
+        background: linear-gradient(
+        110deg,
+        transparent 10%,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 55%,
+        transparent 90%
+        );
+        animation: reflexo-vidro 2s ease-in-out infinite;
+    }
+
+    @keyframes reflexo-vidro {
+        0% { left: -150%; }
+        100% { left: 150%; }
+    }
+</style>
+
+<script>
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('global-loader');
+        
+        if (loader) {
+        loader.classList.add('hidden');
+
+        setTimeout(() => {
+            loader.style.display = 'none';
+            document.dispatchEvent(new CustomEvent('CarregamentoCompleto'));
+        }, 800);
+        }
+    });
+</script>
