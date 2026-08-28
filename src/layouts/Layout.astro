@@ -9,7 +9,7 @@ interface Props {
 const { isIndex = false } = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
 		<meta charset="utf-8" />
@@ -21,11 +21,11 @@ const { isIndex = false } = Astro.props;
 	</head>
 	<body>
 		<Preloader slot="fallback"/>
-		<Navbar isIndex={isIndex} client:visible/>
+		<Navbar isIndex={isIndex} />
 		<main>
 			<slot />
 		</main>
-		<Footer client:visible/>
+		<Footer />
 	</body>
 </html>
 
