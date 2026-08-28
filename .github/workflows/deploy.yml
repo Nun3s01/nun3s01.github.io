@@ -1,10 +1,8 @@
 name: Deploy to GitHub Pages
 
 on: 
-  # Dispara a action toda vez que houver um push na branch main
   push: 
     branches: [ main ]
-  # Permite rodar o script manualmente na aba Actions do GitHub
   workflow_dispatch:
 
 # Permissões DevSecOps necessárias para o GitHub Pages ler e publicar
@@ -22,10 +20,8 @@ jobs:
       
       - name: Instalação e Build do Astro
         uses: withastro/action@v3
-        # Se o seu projeto não estiver na raiz do repositório, 
-        # descomente as linhas abaixo e aponte o caminho
-        # with:
-        #   path: ./pasta-do-projeto
+        with:
+            node-version: 22
 
   deploy:
     needs: build
