@@ -1,7 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
 export default defineConfig({
-    site: 'https://nun3s01.github.io',
+  site: 'https://nun3s01.github.io',
+  integrations: [sitemap()],
 });
