@@ -10,7 +10,7 @@ The goal is to communicate professional skills, projects, and expertise to the r
 
 Inside of project, you'll see the following folders and files:
 
-```
+```text
 /
 ├── .github
 │   ├── assets
@@ -86,6 +86,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
----
+## 📅 Last update
 
-_Last update in 28/08/2026_
+> 28/08/2026
