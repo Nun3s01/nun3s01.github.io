@@ -52,7 +52,7 @@ Inside of project, you'll see the following folders and files:
 │   ├── assets
 │   │   └── img
 │   │       ├── github.svg
-│   │       ├── hero_background.jpg
+│   │       ├── hero_background.webp
 │   │       ├── instagram.svg
 │   │       └── linkedin.svg
 │   ├── components
