@@ -35,10 +35,14 @@ const { isIndex = false } = Astro.props;
 	@font-face {
 		font-family: 'PoppinsRegular';
 		src: url('/fonts/Poppins/Poppins_Regular.ttf') format('truetype');
+		font-style: normal;
+		font-display: swap;
 	}
 	@font-face {
 		font-family: PoppinsBold;
 		src: url('/fonts/Poppins/Poppins_Bold.ttf') format('truetype');
+		font-style: normal;
+		font-display: swap;
 	}
 	@font-face {
 		font-family: 'AnekDevAnagari';
@@ -124,6 +128,17 @@ const { isIndex = false } = Astro.props;
 		backdrop-filter: blur(10px);
 		border: none;
 		border-radius: 110px;
+	}
+
+	.linkIcon-padrao { /* Definição da cor dos icons aqui */
+        color: #f2f2f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.3s ease;
+	}
+	.linkIcon-padrao:hover { /* Feedback de "selecionado" aos icons */
+        color: #7c7c7c;
 	}
 </style>
 
