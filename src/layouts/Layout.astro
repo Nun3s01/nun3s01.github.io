@@ -20,6 +20,14 @@ const { isIndex = false } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>Portfolio | Cauã Nunes Novaes</title>
 		<meta name="description" content="Portfólio Profissional, desenvolvido por Cauã Nunes Novaes. Atualmente atua como Desenvolvedor Front-end e Infraestrutura. A cada dia está no caminho para se tornar um Arquiteto de Software. - Technology is EVERYWHERE!" />
+		<!-- Google tag (gtag.js) -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=GT-TXX3VLFQ"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'GT-TXX3VLFQ');
+		</script>
 	</head>
 	<body>
 		<Preloader slot="fallback"/>
