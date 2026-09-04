@@ -1,32 +1,45 @@
 ---
-import LogotipoCNN from './LogotipoCNN.astro';
-import GithubSVG from '../assets/img/github.svg';
-import InstagramSVG from '../assets/img/instagram.svg';
-import LinkedinSVG from '../assets/img/linkedin.svg';
-
+import LogotipoCNN from './icons/LogotipoCNN.astro';
+import GithubIcon from './icons/GithubIcon.astro';
+import InstagramIcon from './icons/InstagramIcon.astro';
+import LinkedInIcon from './icons/LinkedInIcon.astro';
+import XIcon from './icons/XIcon.astro';
 ---
 
 
 <footer id="container-footer">
-    <div class="container-content-footer">
-        <div class="container-img-content" title="GitHub">
-            <a href="https://github.com/Nun3s01" target="_blank">
-                <img src={GithubSVG.src} alt="GitHub Icon">
+    <div style="width: 100%;; display: flex; justify-content: space-around; align-items: center;"> <!-- Ajustar a estilização desta div -->
+        <div class="container-logo">
+            <a href="/" class="linkIcon-padrao" aria-label="Home">
+                <LogotipoCNN width='64' height='64'/>
             </a>
         </div>
-        <div class="container-img-content" title="Instagram">
-            <a href="https://www.instagram.com/nun3s01_/" target="_blank">
-                <img src={InstagramSVG.src} alt="Instagram Icon">
-            </a>
-        </div>
-        <div class="container-img-content" title="LinkedIn">
-                <a href="https://www.linkedin.com/in/nun3s01/" target="_blank">
-                <img src={LinkedinSVG.src} alt="Linkedin Icon">
-            </a>
+
+        <div class="container-content-footer">
+            <div class="container-link-icon-content" title="GitHub">
+                <a href="https://github.com/Nun3s01" class="linkIcon-padrao" target="_blank" aria-label="Acessar GitHub">
+                    <GithubIcon width='24' height='24'/>
+                </a>
+            </div>
+            <div class="container-link-icon-content" title="Instagram">
+                <a href="https://www.instagram.com/nun3s01_/" class="linkIcon-padrao" target="_blank" aria-label="Acessar Instagram">
+                    <InstagramIcon width='24' height='24'/>
+                </a>
+            </div>
+            <div class="container-link-icon-content" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/nun3s01/" class="linkIcon-padrao" target="_blank" aria-label="Acessar LinkedIn">
+                    <LinkedInIcon width='24' height='24'/>
+                </a>
+            </div>
+            <div class="container-link-icon-content" title="X">
+                <a href="https://x.com/nun3s01_" class="linkIcon-padrao" target="_blank" aria-label="Acessar X">
+                    <XIcon width='24' height='24'/>
+                </a>
+            </div>
         </div>
     </div>
     <div class="container-developed">
-        <a href="/">Developed by Cauã Nunes Novaes</a>
+        <a href="/" class="linkIcon-padrao" aria-label="Home">Developed by Cauã Nunes Novaes</a>
     </div>
 </footer>
 
@@ -42,13 +55,24 @@ import LinkedinSVG from '../assets/img/linkedin.svg';
         align-items: center;
     }
 
-    .container-content-footer {
+    .container-logo {
+        width: 80px;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .container-img-content {
+    .container-content-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container-link-icon-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin: 10px;
     }
 
