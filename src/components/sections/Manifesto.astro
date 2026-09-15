@@ -1,0 +1,78 @@
+<section id="manifesto" class="container-manifesto">
+    <div class="container-acessibilidade">
+        <h2 class="sr-only">
+            TECHNOLOGY IS EVERYWHERE!
+        </h2>
+        <p class="manifesto-text" aria-hidden="true">
+            <span class="word">TECHNOLOGY</span>
+            <span class="word">IS</span>
+            <span class="word">EVERYWHERE!</span>
+        </p>
+    </div>
+</section>
+
+<style>
+    .container-manifesto {
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* .container-acessibilidade{
+        
+    } */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+    
+    .manifesto-text {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+    .word {
+        opacity: 0.15;
+        display: inline-block;
+        margin-right: 0.25em;
+        will-change: opacity, color;
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    const initManifesto = () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const words = document.querySelectorAll('#manifesto .word');
+        
+        if (!words.length) return; 
+
+        gsap.to(words, {
+        scrollTrigger: {
+            trigger: "#manifesto",
+            start: "top 60%", // Inicia a animação quando o topo da seção cruza 75% da tela
+            end: "bottom 80%", // Finaliza a animação
+            scrub: 1, // 'Scrub' conecta a animação ao scroll. O '1' adiciona suavidade (Lenis friendly)
+        },
+        opacity: 1,
+        color: "#f2f2f2",
+        stagger: 0.1, // Anima palavra por palavra em cascata
+        ease: "none",
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', initManifesto);
+</script>

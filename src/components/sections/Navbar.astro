@@ -1,5 +1,5 @@
 ---
-import LogotipoCNN from './icons/LogotipoCNN.astro';
+import LogotipoCNN from '../icons/LogotipoCNN.astro';
 
 interface Props {
     isIndex?: boolean;
@@ -10,15 +10,15 @@ const { isIndex = false } = Astro.props;
 <header id="container-header" class={`container-header ${isIndex ? 'off-opacity-header' : ''}`}>
     <nav class="container-navbar">
         <div class="container-logo">
-            <a href="/" class="linkIcon-padrao" aria-label="Home">
-                <LogotipoCNN width="80" height="80" />
+            <a href="/" class="link-padrao" aria-label="Home">
+                <LogotipoCNN size={80} />
             </a>
         </div>
         <div class="container-menu">
             <ul>
-                <li><a href="/" class="linkIcon-padrao" aria-label="Home">Home</a></li>
-                <li><a href="#SobreMim" class="linkIcon-padrao" aria-label="Sobre Mim">Sobre Mim</a></li>
-                <li><a href="/carreira" class="linkIcon-padrao" aria-label="Carreira">Carreira</a></li>
+                <li><a href="/" class="link-padrao" aria-label="Home">Home</a></li>
+                <li><a href="#SobreMim" class="link-padrao" aria-label="Sobre Mim">Sobre Mim</a></li>
+                <li><a href="/carreira" class="link-padrao" aria-label="Carreira">Carreira</a></li>
             </ul>
         </div>
     </nav>
@@ -38,7 +38,7 @@ const { isIndex = false } = Astro.props;
         justify-content: center;
         align-items: center;
         backdrop-filter: blur(10px);
-        box-shadow: 0 1px 1px #0d0d0d;
+        box-shadow: 0 .25px .25px #0d0d0d;
     }
     .off-opacity-header {
         /* \/ Estado inicial para a animação do GSAP \/ */
