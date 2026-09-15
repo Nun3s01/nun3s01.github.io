@@ -1,7 +1,7 @@
 ---
-import Preloader from '../components/LoaderPage.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro'
+import Preloader from '../components/sections/LoaderPage.astro';
+import Navbar from '../components/sections/Navbar.astro';
+import Footer from '../components/sections/Footer.astro'
 
 interface Props {
 	isIndex?: boolean;
@@ -20,16 +20,20 @@ const { isIndex = false } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>Portfolio | Cauã Nunes Novaes</title>
 		<meta name="description" content="Portfólio Profissional, desenvolvido por Cauã Nunes Novaes. Atualmente atua como Desenvolvedor Front-end e Infraestrutura. A cada dia está no caminho para se tornar um Arquiteto de Software. - Technology is EVERYWHERE!" />
-		<!-- Google tag (gtag.js) -->
-		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=GT-TXX3VLFQ"></script>
-		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'GT-TXX3VLFQ');
-		</script>
+		<!-- Google Tag Manager -->
+		<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-5PWJVSL7');</script>
+		<!-- End Google Tag Manager -->
 	</head>
 	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PWJVSL7"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
 		<Preloader slot="fallback"/>
 		<Navbar isIndex={isIndex} />
 		<main>
@@ -84,9 +88,9 @@ const { isIndex = false } = Astro.props;
 		--corTexto-padrao: #f2f2f2;
 		--corTitulo-padrao: #f7f7f7;
 		
-		--fonte-anekdevanagari: 'AnekDevAnagari', sans-serif;
+		--fonte-fonte-body-p: 'AnekDevAnagari', sans-serif;
 		--fonte-poppins-Regular: 'PoppinsRegular', sans-serif;
-		--fonte-poppins-Bold: 'PoppinsBold', sans-serif;
+		--fonte-titles-link: 'PoppinsBold', sans-serif;
 		--espacamento-padrao: 0.35rem;
 	}
 
@@ -96,7 +100,7 @@ const { isIndex = false } = Astro.props;
 		width: 100%;
 		min-height: 100vh;
 		box-sizing: border-box;
-		font-family: var(--fonte-anekdevanagari);
+		font-family: var(--fonte-fonte-body-p);
 		background-color: var(--corFundo-padrao);
 		color: var(--corTexto-padrao);
 	}
@@ -104,7 +108,7 @@ const { isIndex = false } = Astro.props;
 	h1, h2, h3, h4 {
 		margin: 0;
 		padding: 0;
-		font-family: var(--fonte-poppins-Bold);
+		font-family: var(--fonte-titles-link);
 		color: var(--corTitulo-padrao);
 		letter-spacing: var(--espacamento-padrao);
 		width: min-content;
@@ -113,12 +117,14 @@ const { isIndex = false } = Astro.props;
 	}
 
 	p {
+		font-family: var(--fonte-fonte-body-p);
+		color: #f2f2f2;
 		margin: 0;
 		padding: 0;
 	}
 
     a {
-        font-family: var(--fonte-poppins-Bold);
+        font-family: var(--fonte-titles-link);
         font-size: 0.9rem;
         text-transform: uppercase;
         color: #f2f2f2;
@@ -138,14 +144,14 @@ const { isIndex = false } = Astro.props;
 		border-radius: 110px;
 	}
 
-	.linkIcon-padrao { /* Definição da cor dos icons aqui */
+	.link-padrao { /* Definição da cor dos icons aqui */
         color: #f2f2f2;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: color 0.3s ease;
 	}
-	.linkIcon-padrao:hover { /* Feedback de "selecionado" aos icons */
+	.link-padrao:hover { /* Feedback de "selecionado" aos icons */
         color: #7c7c7c;
 	}
 </style>
